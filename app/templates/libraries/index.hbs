@@ -1,0 +1,40 @@
+<h2>List</h2>
+  {{!-- <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">{{library.title}}</h3>
+    </div>
+    <div class="panel-body">
+      <p>userId: {{library.userId}}</p>
+      <p>Id: {{library.id}}</p>
+    </div>
+    <div class="panel-footer text-right">
+          {{#link-to 'libraries.edit' library.id class='btn btn-success btn-xs'}}Edit{{/link-to}}
+          <button class="btn btn-danger btn-xs" {{action 'deleteLibrary' library}}>Delete</button>
+        </div>
+  </div> --}}
+  <table class="table table stripped">
+    <thead>
+      <tr>
+        <td>Title</td>
+        <td>UserID</td>
+        <td>Id</td>
+        <td>Actions</td>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each model as |library|}}
+      <tr>
+        
+        <td>{{library.title}}</td>
+        <td>{{library.userId}}</td>
+        <td>{{library.id}}</td>
+        <td>{{#link-to 'libraries.edit' library.id class='btn btn-success btn-xs'}}Edit{{/link-to}}
+          <button class="btn btn-danger btn-xs" {{action 'deleteLibrary' library}}>Delete</button></td>
+       
+      </tr>
+     {{/each}}
+    </tbody>
+    {{#each commonData as |data|}}
+  {{data.name}}
+    {{/each}}
+  </table>
